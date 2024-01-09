@@ -45,7 +45,7 @@ module.exports = {
   },
 
 
-  async editUser(req, res) {
+  async editUser(req, res) { //edit by userID requiring id and json params
     try {
       const userId = req.params.userId;
       const updatedUser = await User.findByIdAndUpdate(userId, req.body, { new: true });
@@ -55,7 +55,7 @@ module.exports = {
     }
   },
 
-  async addFriend(req, res) {
+  async addFriend(req, res) { //we find user by id, then add friend based upon json file we put.
     try {
       const userId = req.params.userId;
       const friendId = req.body.friendId;
@@ -73,7 +73,7 @@ module.exports = {
   },
 
 
-  async deleteFriend(req, res) {
+  async deleteFriend(req, res) { //we find user by id, then delete friend based upon json file we put.
     try {
       const userId = req.params.userId;
       const friendId = req.body.friendId;
