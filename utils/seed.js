@@ -38,19 +38,19 @@ connection.once('open', async () => {
     users.push(newUser);
   }
 
-  // Generate 10 thoughts for each user
+  //** Generate 10 thoughts for each user
   users.forEach((user, index) => {
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 1; i++) {
       const newThought = {
         thoughtText: `Thought ${i + 1} by ${user.username}`,
         username: user.username,
         userId: index + 1,
       };
       thoughts.push(newThought);
-      user.thoughts.push(i + 1);
+      
     }
   });
-
+  //
   // Wait for the users and thoughts to be inserted into the database
   await User.collection.insertMany(users);
   await Thought.collection.insertMany(thoughts);
